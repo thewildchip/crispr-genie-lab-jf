@@ -1,0 +1,43 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Packaging
+*.egg-info/
+dist/
+build/
+
+# ======================
+# ML artifacts
+# ======================
+models/
+*.joblib
+*.pkl
+*.pt
+*.pth
+*.h5
+
+# ======================
+# IDE / Editor
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# OS
+# ======================
+.DS_Store
+
+# ======================
+# Environment / secrets
+# ======================
+.env
