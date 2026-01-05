@@ -19,7 +19,8 @@ build/
 # ======================
 # ML artifacts
 # ======================
-models/
+models/*
+!models/README.md
 *.joblib
 *.pkl
 *.pt
