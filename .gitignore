@@ -28,11 +28,10 @@ models/*
 *.h5
 
 # Data artifacts
-data/raw/
-data/processed/
-
+data/*
 !data/README.md
-
+*.csv
+*.pkl
 # ======================
 # IDE / Editor
 # ======================
