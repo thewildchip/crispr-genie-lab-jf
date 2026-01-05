@@ -8,6 +8,10 @@ This repository contains our **Jugend forscht 2025/26** project. We develop mach
 
 using genomic, epigenetic, and sequence-based features.
 
+> Note: This repository is a clean continuation of an earlier version.
+> Trained model artifacts were removed from version control to follow standard ML best practices.
+> The original repository can be found here: https://github.com/thewildchip/crispr-genie-lab
+
 ---
 
 ## Project Goals
