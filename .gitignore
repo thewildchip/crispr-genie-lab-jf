@@ -27,6 +27,12 @@ models/*
 *.pth
 *.h5
 
+# Data artifacts
+data/raw/
+data/processed/
+
+!data/README.md
+
 # ======================
 # IDE / Editor
 # ======================
