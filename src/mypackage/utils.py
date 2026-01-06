@@ -5,10 +5,13 @@ from sklearn.model_selection import train_test_split
 
 BASES = ['A', 'C', 'G', 'T']
 
-def print_validation(val_y, pred_y):
-    print("MAE: ", mean_absolute_error(val_y, pred_y))
-    print("MSE: ", mean_squared_error(val_y, pred_y))
-    print("R2:", r2_score(val_y, pred_y))
+def model_validate(val_y, pred_y):
+    validation = {
+        "MAE": mean_absolute_error(val_y, pred_y),
+        "MSE": mean_squared_error(val_y, pred_y),
+        "R2": r2_score(val_y, pred_y)
+    }
+    return validation
 
 
 def export_as_csv_and_pkl(df: pd.DataFrame, file_name: str, path: Path = Path.cwd()): 
