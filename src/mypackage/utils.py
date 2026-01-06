@@ -35,6 +35,12 @@ def export_model(model, file_name: str, path: Path = Path.cwd()):
     print(f"Model saved to {file_path}.joblib")
 
 
+def load_data(df: pd.DataFrame, target: str = "normalized_efficacy"):
+    X = df.drop(columns=[target])
+    y = df[target]
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=0)
+    return X_train, X_val, y_train, y_val
+
 def load_training(df: pd.DataFrame, target: str = "normalized_efficacy"):
     X = df.drop(columns=[target])
     y = df[target]
@@ -54,5 +60,6 @@ def evaluate_model(val_y, pred_y):
         "MAE": mean_absolute_error(val_y, pred_y),
         "MSE": mean_squared_error(val_y, pred_y),
         "RMSE": np.sqrt(mean_squared_error(val_y, pred_y))
+
     }
     return evaluation
