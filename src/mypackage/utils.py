@@ -40,7 +40,7 @@ def load_training(df: pd.DataFrame, target: str = "normalized_efficacy"):
     X_train, _, y_train, _ = train_test_split(X, y, test_size=0.2, random_state=0)
     return X, X_train, y, y_train
 
-def load_validation(df: pd.DataFrame, target: str = "normalized_efficacy"):
+def load_testing(df: pd.DataFrame, target: str = "normalized_efficacy"):
     X = df.drop(columns=[target])
     y = df[target]
     _, X_val, _, y_val = train_test_split(X, y, test_size=0.2, random_state=0)
