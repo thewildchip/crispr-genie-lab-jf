@@ -47,7 +47,7 @@ def load_testing(df: pd.DataFrame, target: str = "normalized_efficacy"):
     return X, X_val, y, y_val
 
 
-def model_validate(val_y, pred_y):
+def evaluate_model(val_y, pred_y):
     validation = {
         "MAE": mean_absolute_error(val_y, pred_y),
         "MSE": mean_squared_error(val_y, pred_y),
