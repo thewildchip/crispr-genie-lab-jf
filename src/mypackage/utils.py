@@ -1,4 +1,5 @@
 from pathlib import Path
+import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -48,9 +49,10 @@ def load_testing(df: pd.DataFrame, target: str = "normalized_efficacy"):
 
 
 def evaluate_model(val_y, pred_y):
-    validation = {
+    evaluation = {
+        "R2": r2_score(val_y, pred_y),
         "MAE": mean_absolute_error(val_y, pred_y),
         "MSE": mean_squared_error(val_y, pred_y),
-        "R2": r2_score(val_y, pred_y)
+        "RMSE": np.sqrt(mean_squared_error(val_y, pred_y))
     }
-    return validation
+    return evaluation
