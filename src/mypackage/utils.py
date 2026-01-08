@@ -17,7 +17,7 @@ def export_as_csv_and_pkl(df: pd.DataFrame, file_name: str, path: Path = Path.cw
     df.to_pickle(f"{file_path}.pkl")
     print(f"Data saved to {file_path}.csv and {file_path}.pkl")
 
-def onehot_encode_sequences(df: pd.DataFrame, seq_col="23-nt_sequence"):
+def onehot_encode_sequences(df: pd.DataFrame, seq_col="23-nt_sequence", ending: str = ""):
     sequences = df[seq_col].values
     n_sequences = len(sequences)
     seq_length = len(sequences[0])
@@ -31,7 +31,7 @@ def onehot_encode_sequences(df: pd.DataFrame, seq_col="23-nt_sequence"):
         onehot[:, :, i] = (np.array([list(seq) for seq in sequences]) == base)
 
     # Flatten to columns
-    col_names = [f"pos_{pos}_{base}" for pos in range(seq_length) for base in bases]
+    col_names = [f"pos_{pos}_{base}{ending}" for pos in range(seq_length) for base in bases]
     onehot_flat = onehot.reshape(n_sequences, seq_length * 4)
 
     # Return a new DataFrame with one-hot columns
