@@ -8,8 +8,8 @@ from sklearn.model_selection import train_test_split
 
 BASES = ['A', 'C', 'G', 'T']
 
-def drop_seq(df: pd.DataFrame) -> None:
-    df.drop(columns=["23-nt_sequence"], inplace=True)
+def drop_seq(df: pd.DataFrame, seq="23-nt_sequence") -> None:
+    df.drop(columns=[seq], inplace=True)
 
 def export_as_csv_and_pkl(df: pd.DataFrame, file_name: str, path: Path = Path.cwd()): 
     file_path = path / file_name
