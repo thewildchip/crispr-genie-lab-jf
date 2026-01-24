@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
-# DATA RELEVANT
+## DATA RELEVANT
 
 BASES = ['A', 'C', 'G', 'T']
 
@@ -59,20 +59,20 @@ def export_model(model, file_name: str, path: Path = Path.cwd()):
 def load_data(df: pd.DataFrame, target: str = "normalized_efficacy"):
     X = df.drop(columns=[target])
     y = df[target]
-    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=0)
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
     return X_train, X_val, y_train, y_val
 
-def load_training(df: pd.DataFrame, target: str = "normalized_efficacy"):
-    X = df.drop(columns=[target])
-    y = df[target]
-    X_train, _, y_train, _ = train_test_split(X, y, test_size=0.2, random_state=0)
-    return X, X_train, y, y_train
+# def load_training(df: pd.DataFrame, target: str = "normalized_efficacy"):
+#     X = df.drop(columns=[target])
+#     y = df[target]
+#     X_train, _, y_train, _ = train_test_split(X, y, test_size=0.2, random_state=42)
+#     return X, X_train, y, y_train
 
-def load_testing(df: pd.DataFrame, target: str = "normalized_efficacy"):
-    X = df.drop(columns=[target])
-    y = df[target]
-    _, X_val, _, y_val = train_test_split(X, y, test_size=0.2, random_state=0)
-    return X, X_val, y, y_val
+# def load_testing(df: pd.DataFrame, target: str = "normalized_efficacy"):
+#     X = df.drop(columns=[target])
+#     y = df[target]
+#     _, X_val, _, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+#     return X, X_val, y, y_val
 
 
 def evaluate_model(val_y, pred_y):
