@@ -4,6 +4,16 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
+from sklearn.metrics import (
+    confusion_matrix,
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    classification_report,
+    roc_auc_score,
+)
+
 ## DATA RELEVANT
 
 BASES = ['A', 'C', 'G', 'T']
@@ -84,3 +94,15 @@ def evaluate_model(val_y, pred_y):
 
     }
     return evaluation
+
+def evaluate_model_classification(val_y, pred_y):
+    evaluation = {
+        
+        "Acc": accuracy_score(val_y, pred_y),
+        "Prec": precision_score(val_y, pred_y),
+        "F1": f1_score(val_y, pred_y),
+        "Recall": recall_score(val_y, pred_y)
+
+    }
+    return evaluation
+
