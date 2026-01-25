@@ -9,5 +9,6 @@ dependencies = [
     "numpy",
     "matplotlib",
     "seaborn",
-    "scikit-learn"
+    "scikit-learn",
+    "xgboost>=3.1.3",
 ]
